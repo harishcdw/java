@@ -1,20 +1,23 @@
 package assignment1;
 
+
 public class SingleTon_class {
+	
 	public static void main(String[] args) {
-		hari h1= hari.singletonClass();
+		Hari h1=Hari.func();
 		
-		hari h2= hari.singletonClass();
 	}
 }
 
-class hari{
-	static hari obj = new hari();
-	private hari() {
-		System.out.println("Hi everyone");
+class Hari{
+	private Hari() {
+		System.out.println("Object created");
 	}
-	public static hari singletonClass() {
+	private static Hari obj;
+	synchronized public static Hari func() {
+		if(obj==null) {
+			obj=new Hari();
+		}
 		return obj;
 	}
 }
-

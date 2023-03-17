@@ -15,15 +15,15 @@ public class PrimeAmstrongPerfectPalindrome {
 		}
 		
 		
+		int n=153;
+		double sum=0,rem;
+		double n1=n;
+		int len = String.valueOf(n).length();
 		
-		
-		
-		int n=153,sum=0,rem;
-		int n1=n;
 		while(n>0)    
 		{    
-			rem=n%10;    
-			sum=sum+(rem*rem*rem);    
+			rem=n%10;  
+			sum=sum+(Math.pow(rem, len));    
 			n=n/10;    
 		}  
 		if(n1==sum) {
@@ -34,9 +34,7 @@ public class PrimeAmstrongPerfectPalindrome {
 		}
 		
 		
-		
-		
-		int n2=496;
+		int n2=28;
 		sum=0;
 		for(int i=1;i<n2;i++) 
 			if(n2%i==0)

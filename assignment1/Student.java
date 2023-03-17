@@ -22,9 +22,7 @@ class Exam extends Student1{
 
 class Result extends Exam{
 	int totalMark;
-	public Result() {
-
-	}
+	
 	public void totalmark() {
 		totalMark=marks[0]+marks[1]+marks[2];
 		System.out.println("Name : "+name);

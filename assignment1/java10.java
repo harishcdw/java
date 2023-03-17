@@ -1,29 +1,32 @@
 package assignment1;
 
-public class java10 {
+public class Java10 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		C c=new C();
 
 	}
 
 }
 
-class A{
+class A {
 	public A() {
 		System.out.println("Constructor of class A");
 	}
 	
 }
 
-class B{
+class B extends A{
 	public B() {
 		System.out.println("Constructor of class B");
 	}
 }
 
-class C extends A{
+class C extends B{
 	int B;
 	
 }
+
+
+

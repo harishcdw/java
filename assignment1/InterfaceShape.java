@@ -1,20 +1,20 @@
 package assignment1;
 
 
-interface calcArea{
+interface CalcArea{
 	public double Areacircle(double r);
 	public double AreaSquare(double a);
 	public double AreaTriangle(double a,double b,double c);	
 	
 }
 
-interface calcVolume{
+interface CalcVolume{
 	public double VolCircle(double r);
 	public double VolSquare(double a);
 	
 }
 
-class shapes implements calcArea,calcVolume{
+class Shapes implements CalcArea,CalcVolume{
 	public double Areacircle(double r) {
 		return 3.14*r*r;
 	}
@@ -38,8 +38,8 @@ class shapes implements calcArea,calcVolume{
 
 public class InterfaceShape {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub	
-		shapes s1 = new shapes();
+		
+		Shapes s1 = new Shapes();
 		System.out.println(s1.Areacircle(5));
 		System.out.println(s1.AreaSquare(5));
 		System.out.println(s1.AreaTriangle(5,5,5));

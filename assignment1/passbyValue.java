@@ -1,6 +1,6 @@
 package assignment1;
 
-public class passbyValue {
+public class PassByValue {
 	public static void main(String[] args) {
 		
 		System.out.println("<------Pass by Value------->");
@@ -9,6 +9,8 @@ public class passbyValue {
 		pass(x);
 		System.out.println("After passing :"+x);
 		System.out.println();
+		
+		
 		
 		System.out.println("<------Pass by Reference(array)------->");
 		int[] arr=new int[3];
@@ -20,8 +22,10 @@ public class passbyValue {
 		System.out.println("After Passing :"+arr[2]);
 		System.out.println();
 		
+		
+		
 		System.out.println("<------Pass by Reference(object)------->");
-		passbyReference obj=new passbyReference();
+		PassByReference obj=new PassByReference();
 		System.out.println("Before Passing :"+obj.a);
 		reference(obj);
 		System.out.println("After Passing :"+obj.a);
@@ -31,7 +35,7 @@ public class passbyValue {
 		x=50;
 	}
 	
-	public static void reference(passbyReference obj) {
+	public static void reference(PassByReference obj) {
 		obj.a=100;
 	}
 	public static void referenceArray(int[] ch) {
@@ -42,6 +46,6 @@ public class passbyValue {
 
 
 
-class passbyReference{
+class PassByReference{
 	int a=10;
 }
