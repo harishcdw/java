@@ -9,7 +9,7 @@ public class CountCharacters {
 		  int charCount=0;
 		  System.out.println("Enter the Input");
 		  while(inp.hasNext()) {
-			  charCount=charCount+inp.next().length();
+			  charCount+=inp.next().length();
 		  }
 		  
 		  System.out.println(charCount);
