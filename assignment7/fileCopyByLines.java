@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class fileCopyByLines {
 	public static void main(String[] args) {
@@ -20,6 +21,9 @@ public class fileCopyByLines {
 				writer.newLine();
 			}
 			System.out.println("file copy success");
+		}
+		catch(IOException e1){
+			System.out.println(e1);
 		}
 		catch(Exception e) {
 			System.out.println(e);

@@ -1,6 +1,7 @@
 package assignment7;
 
 import java.io.FileReader;
+import java.io.IOException;
 
 public class printFileContent {
 
@@ -11,6 +12,9 @@ public class printFileContent {
 			while((n=filereader.read())!=-1) {
 				System.out.println((char)n);
 			}
+		}
+		catch(IOException e1){
+			System.out.println(e1);
 		}
 		catch(Exception e) {
 			System.out.println(e);

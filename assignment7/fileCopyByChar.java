@@ -2,6 +2,7 @@ package assignment7;
 
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class fileCopyByChar {
 
@@ -14,6 +15,9 @@ public class fileCopyByChar {
 				filewriter.write(temp);
 			}
 			System.out.println("file copy success");
+		}
+		catch(IOException e1){
+			System.out.println(e1);
 		}
 		catch(Exception e) {
 			System.out.println(e);
