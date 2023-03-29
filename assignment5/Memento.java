@@ -7,9 +7,10 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class Memento {
-
 	public static void main(String[] args)throws Exception {
-		
+		/**
+		 * Memento pattern  -  helps to store state of an object and keep track of previous state
+		 */
 		ObjectOutputStream currversion=new ObjectOutputStream(new FileOutputStream("version1.dat"));
 		
 		Project pro=new Project();
