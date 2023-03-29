@@ -1,5 +1,4 @@
 package assignment6;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -8,11 +7,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Application {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Travel travel = new Travel();
-		
 		try (Scanner inp = new Scanner(System.in)) {
 			System.out.println("Enter the speed of the Vehicle in km/hour : ");
 			travel.setSpeed( inp.nextInt());
@@ -20,8 +16,6 @@ public class Application {
 			System.out.println("Enter the distance to travel by the Vehicle in km : ");
 			travel.setDistance( inp.nextInt());
 		}
-//		travel.setSpeed( 80);
-//		travel.setDistance(20900);
 		DestinationTime dt = new DestinationTime();
 		dt.destination(travel);
 	}
@@ -30,10 +24,10 @@ public class Application {
 
 class DestinationTime{
 	
-	CurrDateTime cdt = new CurrDateTime();
-	dayOfTheDate dod= new dayOfTheDate();
-	int day=dod.dayofweek( cdt.getDate(), cdt.getMonth(), cdt.getYear());
-	int desDate=cdt.getDate(),desMonth=cdt.getMonth(),desYear=cdt.getYear();
+	CurrDateTime currDateTime = new CurrDateTime();
+	dayOfTheDate day_of_the_date= new dayOfTheDate();
+	int day=day_of_the_date.dayofweek( currDateTime.getDate(), currDateTime.getMonth(), currDateTime.getYear());
+	int desDate=currDateTime.getDate(),desMonth=currDateTime.getMonth(),desYear=currDateTime.getYear();
 	
 	int desHour=0;
 	float desMin=0;
@@ -63,7 +57,7 @@ class DestinationTime{
 			{
 				float todayRemTime=8;
 				if(flag1){
-					todayRemTime=24-cdt.getHour()-(cdt.getMin()/(float)60);
+					todayRemTime=24-currDateTime.getHour()-(currDateTime.getMin()/(float)60);
 					flag1=false;
 				}
 			
@@ -123,7 +117,9 @@ class DestinationTime{
 	}
 }
 
-
+/**
+ * getter setter for speed and distance
+ */
 class Travel{
 	float speed;
 	float distance;
@@ -144,6 +140,9 @@ class Travel{
 	}	
 }
 
+/**
+ * function to get date and time
+ */
 class CurrDateTime{
 	
 	 LocalDateTime now = LocalDateTime.now();
@@ -181,17 +180,23 @@ class CurrDateTime{
 	}
 }
 
+/**
+ * getting day of the given data
+ */
 class dayOfTheDate{
-	int dayofweek(int d, int m, int y)
+	int dayofweek(int date, int month, int year)
     {
         int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
-        if (m < 3) {
-            y--;
+        if (month < 3) {
+            year--;
         }
-        return (y + y / 4 - y / 100 + y / 400 + t[m - 1] + d)% 7;
+        return (year + year / 4 - year / 100 + year / 400 + t[month - 1] + date)% 7;
     }
 }
 
+/**
+ * checking for working day
+ */
 class WorkingDay{
 	public static boolean isWorkingday(int date,int month,int year,int day) {
 		if(date==1&&month==1) {
