@@ -1,9 +1,6 @@
 package assignment7;
-
 import java.util.Scanner;
-
 public class CountCharacters {
-
 	public static void main(String[] args) {
 		  Scanner inp = new Scanner(System.in);
 		  int charCount=0;
@@ -14,7 +11,6 @@ public class CountCharacters {
 		  
 		  System.out.println(charCount);
 	}
-
 }
 
 
