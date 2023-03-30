@@ -56,6 +56,12 @@ class DestinationTime{
 			if(WorkingDay.isWorkingday(desDate,desMonth,desYear,day)) 
 			{
 				float todayRemTime=8;
+				/**
+				 * For the first time, flag1 will be false, which means the travel for the first day will be the remaining time of that day.
+				 * For example if the travel starts by 9 pm, the remaining available time for that day to travel is 3 hrs) 
+				 * but for the next upcoming days it can take the entire day(8 hrs)
+				 * So in this manner the travel time of each working day is calculated and reduced from the total time.
+				 */
 				if(flag1){
 					todayRemTime=24-currDateTime.getHour()-(currDateTime.getMin()/(float)60);
 					flag1=false;
