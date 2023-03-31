@@ -6,34 +6,23 @@ import java.util.concurrent.Executors;
 public class Synchornized {
 
 	public static void main(String[] args) {
-		ThreadAccess t1 = new ThreadAccess();
 		ExecutorService es = Executors.newFixedThreadPool(2);
 		es.execute(() -> {
-			synchronized (t1) {
-				t1.openParam();
+			synchronized (ThreadAccess.class) {
+				ThreadAccess.openParam();
 				
 			}
 		});
 		es.execute(() -> {
-			try {
-				Thread.sleep(100);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			synchronized (t1) {
-				t1.message();
+			synchronized (ThreadAccess.class) {
+				ThreadAccess.message();
 			}
 
 		});
 		
 		es.execute(() -> {
-			try {
-				Thread.sleep(200);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			synchronized (t1) {
-				t1.closeParam();
+			synchronized (ThreadAccess.class) {
+				ThreadAccess.closeParam();
 			}
 
 		});
@@ -43,15 +32,15 @@ public class Synchornized {
 
 class ThreadAccess {
 
-	public void openParam() {
-		System.out.println("[-------");
+	public static void openParam() {
+		System.out.print("[-------");
 	}
 
-	public void message() {
-		System.out.println("Message1");
+	public static void message() {
+		System.out.print("Message1");
 	}
 
-	public void closeParam() {
+	public static void closeParam() {
 		System.out.println("------]");
 
 	}
