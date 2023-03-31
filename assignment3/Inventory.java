@@ -27,9 +27,9 @@ public class Inventory {
 }
 
 class Product{
-	boolean flag;
+	int count=0;
 	synchronized public void producer() {
-		if(flag) {
+		if(count==0) {
 			try {
 				wait();
 			}
@@ -38,12 +38,12 @@ class Product{
 			}
 		}
 		System.out.println("Product produced");
-		flag=true;
+		count=1;
 		notify();
 	}
 	
 	synchronized public void consumer() {
-		if(!flag) {
+		if(count==1) {
 			try {
 				wait();
 			}
@@ -52,7 +52,7 @@ class Product{
 			}
 		}
 		System.out.println("Product consumed");
-		flag=false;
+		count=0;
 		notify();
 	}
 }
