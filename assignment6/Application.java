@@ -25,8 +25,8 @@ public class Application {
 class DestinationTime{
 	
 	CurrDateTime currDateTime = new CurrDateTime();
-	dayOfTheDate day_of_the_date= new dayOfTheDate();
-	int day=day_of_the_date.dayofweek( currDateTime.getDate(), currDateTime.getMonth(), currDateTime.getYear());
+	dayOfTheDate dayOfTheDateObj= new dayOfTheDate();
+	int day=dayOfTheDateObj.dayofweek( currDateTime.getDate(), currDateTime.getMonth(), currDateTime.getYear());
 	int desDate=currDateTime.getDate(),desMonth=currDateTime.getMonth(),desYear=currDateTime.getYear();
 	
 	int desHour=0;
@@ -45,17 +45,17 @@ class DestinationTime{
 	{
 		float speed=travel.getSpeed();
 		float distance=travel.getDistance();
-		float RemTimeToTravel=distance/speed;
+		float remTimeToTravel=distance/speed;
 		int Mon31[]= {1,3,5,7,8,10,12};
 		List<Integer> l1 = new ArrayList<>();
 		for (int i : Mon31){
 		    l1.add(i);
 		}
 		boolean flag1=true;
-		while(RemTimeToTravel>0) {
+		while(remTimeToTravel>0) {
 			if(WorkingDay.isWorkingday(desDate,desMonth,desYear,day)) 
 			{
-				float todayRemTime=8;
+				float todayremTime=8;
 				/**
 				 * For the first time, flag1 will be false, which means the travel for the first day will be the remaining time of that day.
 				 * For example if the travel starts by 9 pm, the remaining available time for that day to travel is 3 hrs) 
@@ -63,17 +63,17 @@ class DestinationTime{
 				 * So in this manner the travel time of each working day is calculated and reduced from the total time.
 				 */
 				if(flag1){
-					todayRemTime=24-currDateTime.getHour()-(currDateTime.getMin()/(float)60);
+					todayremTime=24-currDateTime.getHour()-(currDateTime.getMin()/(float)60);
 					flag1=false;
 				}
 			
-				if(RemTimeToTravel>=todayRemTime) {		
-					RemTimeToTravel-=todayRemTime;
+				if(remTimeToTravel>=todayRemTime) {		
+					remTimeToTravel-=todayRemTime;
 				}
 				else{	
-					desHour=(int)RemTimeToTravel;
-					desMin=RemTimeToTravel-desHour;
-					RemTimeToTravel=0;	
+					desHour=(int)remTimeToTravel;
+					desMin=remTimeToTravel-desHour;
+					remTimeToTravel=0;	
 				}
 			 }
 			 
